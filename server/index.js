@@ -14,9 +14,6 @@ import postRoutes from "./routes/posts.js";
 import { register } from "./controllers/auth.js";
 import { createPost } from "./controllers/posts.js";
 import { verifyToken } from "./middleware/auth.js";
-import User from "./models/User.js";
-import Post from "./models/Post.js";
-import { users, posts } from "./data/index.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -49,7 +46,7 @@ dotenv.config();
 // variables are available to your application as properties of the process.env object.
 
 const app = express();
-// to humne jo express module import kiya hai upr vo ek function return krta hai or 51 line me hum us function ko call kr rhe hai as
+// to humne jo express module import kiya hai upr vo ek function return krta hai or 48 line me hum us function ko call kr rhe hai as
 // express() or vo return krega ek new instance of express fir hum us instance ka use krke jaise app in the above case required functions
 // ka use kr skte hain.
 
@@ -100,9 +97,6 @@ app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 // In this case, the value is set to "cross-origin", which allows the web application to make requests to any domain.
 
 app.use(morgan("common"));
-// morgan is a popular npm package that provides a simple, customizable logger middleware function for Express applications.
-// It allows you to log HTTP request information such as the request method, URL, response status, and more.
-
 // morgan is a popular npm package that provides a simple, customizable logger middleware function for Express applications.
 // It allows you to log HTTP request information such as the request method, URL, response status, and more.
 
