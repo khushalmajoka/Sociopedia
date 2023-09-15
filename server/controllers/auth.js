@@ -1,13 +1,5 @@
 import bcrypt from "bcrypt";
-// bcrypt is a popular npm package that provides a simple and secure way to hash and verify passwords. It uses the bcrypt hashing 
-// algorithm, which is a cryptographic hash function designed specifically for hashing passwords. The bcrypt package is designed to be 
-// easy to use and to provide strong security. It is a widely used and well-respected password hashing library, and it is a good 
-// choice for storing hashed passwords in a database.
 import jwt from "jsonwebtoken";
-// jsonwebtoken is a popular npm package that provides a simple and secure way to sign and verify JSON Web Tokens (JWTs). JWTs are a 
-// standard for representing claims securely between two parties, and they are commonly used to authenticate and authorize users in 
-// web applications.The jsonwebtoken package is designed to be easy to use and to provide strong security. It is a widely used and 
-// well-respected JWT library, and it is a good choice for implementing JWT-based authentication and authorization in a web application.
 import User from "../models/User.js";
 
 /* REGISTER USER */
