@@ -46,7 +46,7 @@ const initialValuesLogin = {
   password: "",
 };
 
-const Form = () => {
+const Form = ({ setLoading }) => {
   const [pageType, setPageType] = useState("login");
   const { palette } = useTheme();
   const dispatch = useDispatch();
@@ -56,6 +56,7 @@ const Form = () => {
   const isRegister = pageType === "register";
 
   const register = async (values, onSubmitProps) => {
+    setLoading(true);
     // this allows us to send form info with image
     const formData = new FormData();
     for (let value in values) {
@@ -70,6 +71,7 @@ const Form = () => {
         body: formData,
       }
     );
+    setLoading(false);
     const savedUser = await savedUserResponse.json();
     onSubmitProps.resetForm();
 
@@ -79,11 +81,16 @@ const Form = () => {
   };
 
   const login = async (values, onSubmitProps) => {
-    const loggedInResponse = await fetch(`${process.env.REACT_APP_SERVER_URL}/auth/login`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
-    });
+    setLoading(true);
+    const loggedInResponse = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/auth/login`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      }
+    );
+    setLoading(false);
     const loggedIn = await loggedInResponse.json();
     onSubmitProps.resetForm();
     if (loggedIn) {
